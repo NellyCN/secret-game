@@ -1,6 +1,6 @@
-# 🎮 Juego de Adivinanza de Números 🎮
+# PROYECTO: 🎮 Juego de Adivinanza de Números 🎮
 
-### ¡Bienvenid@ al proyecto: __Secret Game__! 🎉 
+### ¡Bienvenid@ a __Secret Game__! 🎉 
 
 Este es un proyecto simple pero divertido en el que el jugador debe adivinar un número secreto entre 1 y 10. Tienes __3 intentos__ para adivinar correctamente. ¡Buena suerte! 🍀
 
