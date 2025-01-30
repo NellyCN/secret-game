@@ -1,3 +1,5 @@
+/** Juego de Adivinanza de Números **/
+
 // Paso1: Configuración inicial del juego
 
 // Declaramos Variables
