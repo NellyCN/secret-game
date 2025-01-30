@@ -6,11 +6,11 @@ let attempts = 3;   // Nro de intentos
 let guessed = false; // Bolean si el jugador ha adivinado o no el nro.
 
 // Elementos de la interfaz
-const numberInput = document.getElementById("numberInput");
-const guessBtn = document.getElementById("guessBtn");
-const resetBtn = document.getElementById("resetBtn");
-const message = document.getElementById("message");
-const textAttempts = document.getElementById("attempts");
+const numberInput = document.getElementById("numberInput"); // Input del nro. a ingresar
+const guessBtn = document.getElementById("guessBtn"); // Botón adivinar
+const resetBtn = document.getElementById("resetBtn");   // Botón reiniciar
+const message = document.getElementById("message"); // Mensaje de respuesta
+const textAttempts = document.getElementById("attempts"); // Nro. de intentos restantes
 
 // Actualizar los intentos restantes
 textAttempts.textContent = `Intentos restantes: ${attempts}`;
@@ -18,7 +18,8 @@ textAttempts.textContent = `Intentos restantes: ${attempts}`;
 // Paso2: Funcionalidad del botón "Adivinar"
 
 guessBtn.addEventListener("click", () => {
-    if (guessed || attempts === 0) return; // If the game is over, do nothing
+    // Verificar si el juego ha terminado
+    if (guessed || attempts === 0) return;
     
     // Obtener el nro. ingresado por el jugador
     const numberEntered = parseInt(numberInput.value);
@@ -30,27 +31,30 @@ guessBtn.addEventListener("click", () => {
         return;
     }
 
-    // Compare the guessed number with the secret number
+    // Compare el número ingresado con el número secreto
     if (numberEntered === numberSecret) {
         message.textContent = "Felicidades! Adivinaste el número secreto!";
         message.style.color = "green";
         guessed = true;
     } else {
+        
+        // Disminuir el nro. de intentos
         attempts--;
         textAttempts.textContent = `Intentos restantes: ${attempts}`;
+
+        // Verificar si el jugador se quedó sin intentos
         if (attempts === 0) {
             message.textContent = `Te quedaste sin intentos! El número secreto era ${numberSecret}.`;
             message.style.color = "red";
         } else {
+            // Mostrar un mensaje de pista para el jugador
             message.textContent = `Incorrecto. El número secreto es ${numberEntered < numberSecret ? "Mayor" : "Menor"}.`;
             message.style.color = "orange";
         }
     }
 
-    // Clear the input field
+    // Limpiar el input de entrada
     numberInput.value = "";
-
-
 });
 
 
