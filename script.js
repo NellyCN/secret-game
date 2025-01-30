@@ -12,6 +12,9 @@ const resetBtn = document.getElementById("resetBtn");   // Botón reiniciar
 const message = document.getElementById("message"); // Mensaje de respuesta
 const textAttempts = document.getElementById("attempts"); // Nro. de intentos restantes
 const restartBtn = document.getElementById("restartBtn"); // Botón reiniciar
+const winSound = new Audio("sounds/applause.mp3");
+const failSound = new Audio("sounds/fail.mp3");
+const clickSound = new Audio("sounds/mouse-click.mp3");
 
 // Actualizar los intentos restantes
 textAttempts.textContent = `Intentos restantes: ${attempts}`;
@@ -19,6 +22,8 @@ textAttempts.textContent = `Intentos restantes: ${attempts}`;
 // Paso2: Funcionalidad del botón "Adivinar"
 
 guessBtn.addEventListener("click", () => {
+    clickSound.play();
+
     // Verificar si el juego ha terminado
     if (guessed || attempts === 0) return;
     
@@ -36,6 +41,7 @@ guessBtn.addEventListener("click", () => {
     if (numberEntered === numberSecret) {
         message.textContent = "Felicidades! Adivinaste el número secreto!";
         message.style.color = "green";
+        winSound.play();
         guessed = true;
     } else {
         
@@ -47,6 +53,7 @@ guessBtn.addEventListener("click", () => {
         if (attempts === 0) {
             message.textContent = `Te quedaste sin intentos! El número secreto era ${numberSecret}.`;
             message.style.color = "red";
+            failSound.play();
         } else {
             // Mostrar un mensaje de pista para el jugador
             message.textContent = `Incorrecto. El número secreto es ${numberEntered < numberSecret ? "Mayor" : "Menor"}.`;
@@ -61,6 +68,7 @@ guessBtn.addEventListener("click", () => {
 // Paso3: Funcionalidad del botón "Reiniciar"
 
 restartBtn.addEventListener("click", () => {
+    clickSound.play();
     // Restablecer las variables
     secretNumber = Math.floor(Math.random()*10)+1;
     attempts = 3;
