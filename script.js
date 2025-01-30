@@ -11,6 +11,7 @@ const guessBtn = document.getElementById("guessBtn"); // Botón adivinar
 const resetBtn = document.getElementById("resetBtn");   // Botón reiniciar
 const message = document.getElementById("message"); // Mensaje de respuesta
 const textAttempts = document.getElementById("attempts"); // Nro. de intentos restantes
+const restartBtn = document.getElementById("restartBtn"); // Botón reiniciar
 
 // Actualizar los intentos restantes
 textAttempts.textContent = `Intentos restantes: ${attempts}`;
@@ -56,6 +57,21 @@ guessBtn.addEventListener("click", () => {
     // Limpiar el input de entrada
     numberInput.value = "";
 });
+
+// Paso3: Funcionalidad del botón "Reiniciar"
+
+restartBtn.addEventListener("click", () => {
+    // Restablecer las variables
+    secretNumber = Math.floor(Math.random()*10)+1;
+    attempts = 3;
+    guessed = false;
+
+    // Actualizar la interfaz
+    textAttempts.textContent = `Intentos restantes: ${attempts}`;
+    message.textContent = "";
+    numberInput.value = "";
+});
+
 
 
 
