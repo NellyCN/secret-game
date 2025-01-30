@@ -1,6 +1,6 @@
 # 🎮 Juego de Adivinanza de Números 🎮
 
-### ¡Bienvenid@ al juego __Secret Game__! 🎉 
+### ¡Bienvenid@ al proyecto: __Secret Game__! 🎉 
 
 Este es un proyecto simple pero divertido en el que el jugador debe adivinar un número secreto entre 1 y 10. Tienes __3 intentos__ para adivinar correctamente. ¡Buena suerte! 🍀
 
@@ -43,7 +43,6 @@ Este es un proyecto simple pero divertido en el que el jugador debe adivinar un 
 Sigue estos pasos para ejecutar el proyecto en tu máquina local:
 
 __1. Clona el repositorio:__
-
 ```bash
 git clone https://github.com/NellyCN/secret-game.git
 ```
